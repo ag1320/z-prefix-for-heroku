@@ -15,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx knex migrate:latest && npx knex seed:run --specific=20211122191009_create_users.js && npx knex seed:run --specific=20211122191024_create_posts && node server.js"
+    "start": "npx knex migrate:latest && npx knex seed:run --specific=initial_users.js && npx knex seed:run --specific=initial_posts.js && node server.js"
   },
   "author": "",
   "license": "ISC"
