@@ -68,6 +68,8 @@ app.post("/create", (req, res) => {
 app.post("/getUsersPosts", (req, res) => {
   let content = req.body;
   let { userId } = content;
+  console.log('content', content);
+  console.log('userId',userId);
   getUserPosts(userId)
     .then((posts) => res.status(200).json(posts))
     .catch((err) => res.status(500).json(err));
