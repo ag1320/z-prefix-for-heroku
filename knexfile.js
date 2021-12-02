@@ -1,5 +1,5 @@
 // Update with your config settings.
-require('dotenv').config()
+require('dotenv').config();
 
 const connection = {
   connectionString: process.env.DATABASE_URL,
@@ -12,12 +12,23 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: process.env.DATABASE_URL || 'postgres://postgres:docker@localhost/zpre'
+    connection: process.env.DATABASE_URL
   },
 
   staging: {
-    client: 'pg',
-    connection
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
   },
 
   production: {
